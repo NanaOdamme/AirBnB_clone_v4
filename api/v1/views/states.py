@@ -6,6 +6,7 @@ from api.v1.views import app_views
 from models import storage
 from models.state import State
 
+
 @app_views.route('/states', methods=['GET'], strict_slashes=False)
 def get_all_states():
     """Retrieves the list of all State objects"""
@@ -22,15 +23,14 @@ def get_state(state_id):
     return jsonify(state.to_dict())
 
 
-@app_views.route('/states/<state_id>', methods=['DELETE'], strict_slashes=False)
+@app_views.route('/states/<state_id>',
+                 methods=['DELETE'], strict_slashes=False)
 def delete_state(state_id):
     """Deletes a State object"""
     state = storage.get(State, state_id)
     if state is None:
         abort(404)
-
-    
-    for city in state.cities:    
+    for city in state.cities:
         for place in city.places:
             storage.delete(place)
         storage.delete(city)
@@ -39,7 +39,6 @@ def delete_state(state_id):
     storage.save()
 
     return jsonify({}), 200
-
 
 
 @app_views.route('/states', methods=['POST'], strict_slashes=False)
