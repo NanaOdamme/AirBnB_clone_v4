@@ -2,13 +2,19 @@
 """
 This module contains the principal application
 """
-from flask import Flask
+from flask import Flask, jsonify
 from os import getenv
 from api.v1.views import app_views
 from models import storage
 
 app = Flask(__name__)
 app.register_blueprint(app_views, url_prefix="/api/v1")
+
+
+@app.errorhandler(404)
+def not_found(error):
+    """Handle 404 errors with a JSON response"""
+    return jsonify({"error": "Not found"}), 404
 
 
 @app.teardown_appcontext
