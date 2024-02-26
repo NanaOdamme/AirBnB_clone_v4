@@ -58,7 +58,6 @@ class BaseModel:
         models.storage.new(self)
         models.storage.save()
 
-
     def to_dict(self, secure_pwd=True):
         """returns a dictionary containing all keys/values of the instance"""
         new_dict = self.__dict__.copy()
@@ -73,7 +72,6 @@ class BaseModel:
             if 'password' in new_dict:
                 del new_dict['password']
         return new_dict
-
 
     def delete(self):
         """delete the current instance from the storage"""
