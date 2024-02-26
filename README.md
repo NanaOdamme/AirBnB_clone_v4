@@ -149,14 +149,136 @@ EOF  all  create  destroy  help  quit  show  update
 ** no instance found **
 (hbnb) quit
 ```
+#
+Contribution by Nana Akosua
+## AirBnB Clone v3 Project
+
+## Overview
+
+This project is an implementation of an AirBnB clone, focusing on the development of a RESTful API with Flask. The API is designed to handle operations related to managing users, places, cities, states, amenities, and more.
+
+## Features
+
+### Users
+- Retrieve a list of all users.
+- Retrieve a specific user by ID.
+- Create a new user with email and password.
+- Update user information.
+- Delete a user by ID.
+
+### Places
+- Retrieve a list of all places.
+- Retrieve places associated with a specific city.
+- Retrieve a specific place by ID.
+- Create a new place associated with a user and city.
+- Update place information.
+- Delete a place by ID.
+
+### Cities
+- Retrieve a list of all cities.
+- Retrieve a specific city by ID.
+- Retrieve places associated with a specific city.
+
+### Amenities
+- Retrieve a list of all amenities.
+- Retrieve a specific amenity by ID.
+- Create a new amenity.
+- Update amenity information.
+- Delete an amenity by ID.
+
+### Places Amenities
+- Retrieve a list of amenities associated with a specific place.
+- Add a new amenity to a place.
+- Delete an amenity from a place.
+
+## Setup
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your_username/AirBnB_clone_v3.git
+   cd AirBnB_clone_v3
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Set up the database:
+
+   ```bash
+   # For SQLAlchemy ORM
+   python -m models.db_storage
+   ```
+
+   or
+
+   ```bash
+   # For FileStorage
+   echo "" > file.json  # Create an empty file to store data
+   ```
+
+4. Run the Flask development server:
+
+   ```bash
+   HBNB_API_HOST=0.0.0.0 HBNB_API_PORT=5000 python3 -m api.v1.app
+   ```
+
+## API Endpoints
+
+- **Users:**
+  - `GET /api/v1/users`: Retrieve all users.
+  - `GET /api/v1/users/<user_id>`: Retrieve a specific user.
+  - `POST /api/v1/users`: Create a new user.
+  - `PUT /api/v1/users/<user_id>`: Update user information.
+  - `DELETE /api/v1/users/<user_id>`: Delete a user.
+
+- **Places:**
+  - `GET /api/v1/places`: Retrieve all places.
+  - `GET /api/v1/cities/<city_id>/places`: Retrieve places associated with a city.
+  - `GET /api/v1/places/<place_id>`: Retrieve a specific place.
+  - `POST /api/v1/cities/<city_id>/places`: Create a new place.
+  - `PUT /api/v1/places/<place_id>`: Update place information.
+  - `DELETE /api/v1/places/<place_id>`: Delete a place.
+
+- **Cities:**
+  - `GET /api/v1/cities`: Retrieve all cities.
+  - `GET /api/v1/cities/<city_id>`: Retrieve a specific city.
+
+- **Amenities:**
+  - `GET /api/v1/amenities`: Retrieve all amenities.
+  - `GET /api/v1/amenities/<amenity_id>`: Retrieve a specific amenity.
+  - `POST /api/v1/amenities`: Create a new amenity.
+  - `PUT /api/v1/amenities/<amenity_id>`: Update amenity information.
+  - `DELETE /api/v1/amenities/<amenity_id>`: Delete an amenity.
+
+- **Places Amenities:**
+  - `GET /api/v1/places/<place_id>/amenities`: Retrieve amenities associated with a place.
+  - `POST /api/v1/places/<place_id>/amenities/<amenity_id>`: Add a new amenity to a place.
+  - `DELETE /api/v1/places/<place_id>/amenities/<amenity_id>`: Delete an amenity from a place.
+
+## CORS Configuration
+
+The project is configured to allow cross-origin requests (CORS) from any domain during development.
+
+## Technologies Used
+
+- Flask
+- SQLAlchemy
+- RESTful API Design
+- CORS Configuration
+- Python
+- JSON Data Storage (FileStorage)
+- Database Storage (SQLAlchemy ORM)
+
 
 ## Bugs
 No known bugs at this time. 
 
 ## Authors
-Alexa Orrico - [Github](https://github.com/alexaorrico) / [Twitter](https://twitter.com/alexa_orrico)  
-Jennifer Huang - [Github](https://github.com/jhuang10123) / [Twitter](https://twitter.com/earthtojhuang)
+Nana Akosua - https://github.com/NanaOdamme/AirBnB_clone_v3
 
-Second part of Airbnb: Joann Vuong
 ## License
 Public Domain. No copy write protection. 
