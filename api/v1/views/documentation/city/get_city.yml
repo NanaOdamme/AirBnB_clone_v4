@@ -1,18 +1,16 @@
-gets amenity by ID
+get a specific city  based on the state_id
 ---
 tags:
-  - Amenities
+  - Cities
 parameters:
-  - name: amenity_id
+  - name: city_id
     in: path
     type: string
     required: true
-    description: The id of the amenity
+    description: The uniqe id of the city
 responses:
-  404:
-    description: amenity not found.
   200:
-    description: request executed successfully
+    description: Successful request
     schema:
       properties:
         __class__:
@@ -26,6 +24,9 @@ responses:
         id:
           type: string
           description: The uuid of the instance
+        state_id:
+           type: string
+           description: uuid of the city's state
         name:
            type: string
-           description: amenity name
+           description: city name
