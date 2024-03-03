@@ -279,6 +279,6 @@ No known bugs at this time.
 
 ## Authors
 Nana Akosua - https://github.com/NanaOdamme/AirBnB_clone_v3
-
+Isaac Annor - https://github.com/KingBygone0
 ## License
 Public Domain. No copy write protection. 
